@@ -9,6 +9,13 @@ import 'package:todo_list/models/task_model.dart';
 class MockSharedPreferences extends Mock implements SharedPreferences {
   // Mocking the setString method
   @override
+
+  /// Mocks the setString method of SharedPreferences, always returning true
+  /// Future.
+  ///
+  /// The method is overridden to return a Future that completes with true,
+  /// since the actual SharedPreferences setString method will always return
+  /// true if the key-value pair is successfully stored in the SharedPreferences.
   Future<bool> setString(String? key, String? value) {
     return super.noSuchMethod(
       Invocation.method(#setString, [key, value]),
@@ -17,6 +24,13 @@ class MockSharedPreferences extends Mock implements SharedPreferences {
   }
 }
 
+/// Unit tests for the TaskController class.
+///
+/// The TaskController is the class responsible for managing the list of tasks
+/// and persisting it to SharedPreferences. This test suite verifies that the
+/// TaskController correctly adds new tasks, toggles the completion status of
+/// tasks, and does not add empty tasks to the list. It also verifies that the
+/// tasks are correctly saved to SharedPreferences after each operation.
 void main() {
   group('TaskController', () {
     late TaskController taskController;
