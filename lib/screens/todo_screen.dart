@@ -10,6 +10,20 @@ class TodoScreen extends StatelessWidget {
   final TextEditingController textController = TextEditingController();
 
   @override
+
+  /// Build the To-Do List screen.
+  //
+  /// The screen has an app bar with the title "To-Do List". The body is a
+  /// column with three children:
+  //
+  /// 1. A row with a text field for entering a new task and an add button.
+  //
+  /// 2. A list view of the tasks, with each item being a task tile.
+  //
+  /// When a new task is entered, it is added to the list when the add button is
+  /// pressed. The list is displayed in reverse order of when the tasks were
+  /// added (newest first). Each task tile is an Observable Widget that
+  /// automatically updates when the task is completed.
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('To-Do List')),
