@@ -9,7 +9,7 @@ A simple, intuitive to-do list app built with Flutter. This app allows users to 
  * Get (For State Management)
  * Shared Prefrences (for Caching)
  * Flutter Test (for unit testing)
- * Mockito (for helping unit testing)
+ * Mockito (used in unit testing)
 
 ## Features 🥇
  * Add Tasks: Quickly add new tasks to your list.
