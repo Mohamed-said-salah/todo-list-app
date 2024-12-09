@@ -7,6 +7,12 @@ class TaskController extends GetxController {
   // Observable list of tasks
   var tasks = <Task>[].obs;
 
+  // Nullable SharedPreferences instance for saving and loading tasks
+  final SharedPreferences? prefs;
+
+  // Constructor with optional SharedPreferences
+  TaskController({this.prefs});
+
   @override
   void onInit() {
     super.onInit();
@@ -15,8 +21,9 @@ class TaskController extends GetxController {
 
   // Load tasks from SharedPreferences
   void _loadTasks() async {
-    final prefs = await SharedPreferences.getInstance();
-    final taskList = prefs.getString('tasks');
+    final SharedPreferences effectivePrefs =
+        prefs ?? await SharedPreferences.getInstance();
+    final taskList = effectivePrefs.getString('tasks');
     if (taskList != null) {
       List decodedList = jsonDecode(taskList);
       tasks.value = decodedList.map((task) => Task.fromMap(task)).toList();
@@ -25,9 +32,10 @@ class TaskController extends GetxController {
 
   // Save tasks to SharedPreferences
   void _saveTasks() async {
-    final prefs = await SharedPreferences.getInstance();
+    final SharedPreferences effectivePrefs =
+        prefs ?? await SharedPreferences.getInstance();
     final encodedList = jsonEncode(tasks.map((task) => task.toMap()).toList());
-    prefs.setString('tasks', encodedList);
+    effectivePrefs.setString('tasks', encodedList);
   }
 
   // Add a new task
