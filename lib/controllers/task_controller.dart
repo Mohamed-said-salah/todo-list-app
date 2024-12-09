@@ -1,10 +1,10 @@
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
-
 import '../models/task_model.dart';
 
 class TaskController extends GetxController {
+  // Observable list of tasks
   var tasks = <Task>[].obs;
 
   @override
@@ -33,14 +33,16 @@ class TaskController extends GetxController {
   // Add a new task
   void addTask(String title) {
     if (title.isNotEmpty) {
-      tasks.add(Task(title: title));
+      tasks.add(Task(title: title)); // Add task to the list
       _saveTasks();
     }
   }
 
   // Toggle task completion
   void toggleTaskCompletion(int index) {
-    tasks[index].isCompleted = !tasks[index].isCompleted;
-    _saveTasks();
+    tasks[index].isCompleted =
+        !tasks[index].isCompleted; // Toggle completion status
+    tasks.refresh(); // Notify GetX to refresh the list
+    _saveTasks(); // Persist updated tasks
   }
 }
