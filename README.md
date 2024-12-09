@@ -53,6 +53,13 @@ Prerequisites
       # Build the APK
       flutter build apk --release
    ```
+## Unit Testing
+
+   ``` bash
+      # Run Flutter Testing Command
+      flutter test
+   ```
+
 
 ## Project Structure
    ``` bash
