@@ -14,7 +14,9 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'To-Do List',
-      theme: ThemeData(primarySwatch: Colors.blue),
+      theme: ThemeData(
+        colorSchemeSeed: Colors.blue,
+      ),
       home: TodoScreen(),
     );
   }
