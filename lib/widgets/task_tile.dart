@@ -9,8 +9,6 @@ class TaskTile extends StatelessWidget {
 
   const TaskTile({super.key, required this.task, required this.index});
 
-  @override
-
   /// Builds a widget representing a task item with a title and a completion checkbox.
   ///
   /// The widget is a [ListTile] containing the task's [title] and a [Checkbox]
@@ -18,6 +16,8 @@ class TaskTile extends StatelessWidget {
   /// it toggles the task's completion status in the [TaskController].
   ///
   /// [context] is the build context in which the widget is built.
+
+  @override
   Widget build(BuildContext context) {
     // Get the TaskController instance
     final TaskController taskController = Get.find();

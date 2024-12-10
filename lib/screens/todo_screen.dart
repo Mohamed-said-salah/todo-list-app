@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:todo_list/widgets/inputs/task_title_text_field.dart';
 import '../controllers/task_controller.dart';
 import '../widgets/task_tile.dart';
 
 class TodoScreen extends StatelessWidget {
   TodoScreen({super.key});
 
+  // Create a TaskController instance
   final TaskController taskController = Get.put(TaskController());
-  final TextEditingController textController = TextEditingController();
 
-  @override
+  // Create a TextEditingController instance for the task title field
+  final TextEditingController textController = TextEditingController();
 
   /// Build the To-Do List screen.
   //
@@ -24,6 +26,7 @@ class TodoScreen extends StatelessWidget {
   /// pressed. The list is displayed in reverse order of when the tasks were
   /// added (newest first). Each task tile is an Observable Widget that
   /// automatically updates when the task is completed.
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('To-Do List')),
@@ -34,13 +37,7 @@ class TodoScreen extends StatelessWidget {
             child: Row(
               children: [
                 // Add Task Text field
-                Expanded(
-                  child: TextField(
-                    controller: textController,
-                    decoration:
-                        const InputDecoration(hintText: "Enter a new task"),
-                  ),
-                ),
+                TaskTitleTextField(controller: textController),
 
                 // Add Task button
                 IconButton(
