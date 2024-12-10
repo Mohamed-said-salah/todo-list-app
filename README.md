@@ -60,7 +60,6 @@ Prerequisites
       flutter test
    ```
 
-
 ## Project Structure
    ``` bash
       .
@@ -78,6 +77,7 @@ Prerequisites
 
 ## ScreenShots 🖼️
 <div align='center'>
-  <img height="460px" src="https://github.com/user-attachments/assets/89f9be44-35f0-4418-9354-3ea6870edd97">
+  <img height="460px" src="https://github.com/user-attachments/assets/a8c4041b-22b5-417c-a74d-8b1de784287c">
+  <img height="460px" src="https://github.com/user-attachments/assets/5a834384-e2ea-4f42-a059-ec65aea17cbc">
 <hr/>
 </div>
